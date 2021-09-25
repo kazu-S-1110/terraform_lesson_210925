@@ -1,6 +1,4 @@
-provider "aws" {
-  region = "ap-northeast-1"
-}
+// providerは別ファイルに記載。
 terraform {
   required_version = "0.13.6"
   backend "s3" {
