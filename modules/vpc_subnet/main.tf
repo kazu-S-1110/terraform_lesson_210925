@@ -1,7 +1,6 @@
-
 resource "aws_vpc" "demo" {
-  cidr_block = "192.168.0.0/24"
-
+  #変数として使いたいところを書く。実際に変数に値を渡すのはmodule(インスタンス)側で行う
+  cidr_block = var.vpc_cidr_block
   tags = {
     Name = "demo-vpc"
   }
@@ -9,7 +8,7 @@ resource "aws_vpc" "demo" {
 
 resource "aws_subnet" "demo_1a" {
   vpc_id     = aws_vpc.demo.id
-  cidr_block = "192.168.0.0/25"
+  cidr_block = var.subnet_1a_cidr_block
 
   availability_zone = "ap-northeast-1a"
 
